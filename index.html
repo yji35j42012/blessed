@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>幸福銅鏡</title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/content.css">
+</head>
+<body>
+	<div class="wrap">
+		<input type="checkbox" id="menu_control">
+		<label for="menu_control" class="full-screen"></label>
+		<!-- <div  id="close_screen"></div> -->
+		<div class="header">
+			<label for="menu_control" class="menu_btn">
+				<span>選單</span>
+			</label>
+			<div class="title-logo">
+				<div class="pic"></div>
+			</div>
+			<div class="menu">
+				<nav>
+					<div class="nav-logo">
+						<div class="pic"></div>
+					</div>
+					<ul>
+						<li class="click">首頁 <span>Home</span> </li>
+						<li>關於 <span>About</span> </li>
+						<li>故事 <span>Stories</span> </li>
+						<li>景點 <span>Voewpoint</span> </li>
+						<li>交通 <span>Acces</span> </li>
+						<li>預約 <span>Reservation</span> </li>
+					</ul>
+				</nav>
+			</div>	
+		</div>
+		<div class="content">
+			<div class="item-group">
+				<div class="item">
+					<div class="pic">
+						<div class="left" onclick="prev()">
+							<label for="img-6" class="prev">&#x2039;</label>
+							
+						</div>				
+						<div class="right" onclick="next()">
+							<label for="img-2" class="next">&#x203a;</label>
+						</div>
+						<div class="slides">
+							<img src="assets/photo/home-header1.png" alt="">
+							<div class="text">
+								<p>紅磚巷弄帶著有趣的客家諺語，</p>
+								<p>讓你走在巷弄內彷彿置身在充滿客家文化故事與生態的幽徑中。</p>
+							</div>
+							
+						</div>
+						<div class="slides">
+							<img src="assets/photo/home-header2.png" alt="">
+							<div class="text">
+								<p>紅磚巷弄帶著有趣的客家諺語，</p>
+								<p>讓你走在巷弄內彷彿置身在充滿客家文化故事與生態的幽徑中。</p>
+							</div>
+						</div>					
+					</div>
+					<div class="dot_text">
+						<span class="dot" onclick="currentSlide(1)"></span> 
+      					<span class="dot" onclick="currentSlide(2)"></span> 
+      					
+					</div>
+				</div> 
+			</div>
+
+			<div class="item-group">
+				<div class="item">
+					<div class="pic"></div>
+					<div class="text"></div>
+				</div>
+			</div>
+			<div class="item-group">
+				<div class="item">
+					<div class="pic"></div>
+					<div class="text"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script>
+		$(function(){
+  		$("nav li").click(function(){
+    		$("nav li").eq($(this).index()).addClass("click").siblings().removeClass("click");
+  			})
+		})
+
+		var slideIndex = 0;
+    	var myVar;
+   	 	var slides = document.getElementsByClassName("slides");
+    	showSlides();
+    	function currentSlide(n) {
+      		clearTimeout();
+      		slideIndex = n-1;
+      		clearTimeout(myVar);
+      		showSlides()
+    	}
+	    function prev(){
+	      clearTimeout();
+	      slideIndex = slideIndex-2;
+	      if(slideIndex<0){
+	        slideIndex=slides.length-1;
+	      }
+	      clearTimeout(myVar);
+	      showSlides()
+	    }
+	    function next(){
+	      clearTimeout();
+	      clearTimeout(myVar);
+	      showSlides();
+	    }
+    	function showSlides(){
+      
+      		var i=0;
+      		var dots = document.getElementsByClassName("dot");
+      		for(i ; i < slides.length; i++){
+        		slides[i].style.display = "none";
+      		}
+      		slideIndex++;
+      		if (slideIndex > slides.length) {slideIndex = 1}    
+		    for (i = 0; i < dots.length; i++) {
+		    	dots[i].className = dots[i].className.replace(" active", "");
+		    }
+	      slides[slideIndex-1].style.display = "block"; 
+	      dots[slideIndex-1].className += " active";
+	      myVar = setTimeout(showSlides, 2000);
+    	}
+  	</script>
+
+</body>
+</html>
