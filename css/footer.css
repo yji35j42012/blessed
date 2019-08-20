@@ -1,0 +1,10 @@
+.footer{
+	margin: 0px;
+	height: 200px;
+    background-color: #343534;
+    color: #fff;
+    font-size: 14px;	
+}
+.footer .swrap .text{
+	padding: 80px 0px 0px 80px;
+}
