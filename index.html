@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="css/all.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/content.css">
+	<link rel="stylesheet" href="css/nextprev.css">
+	<link rel="stylesheet" href="css/mr.css">
+	<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 	<div class="wrap">
@@ -37,18 +40,18 @@
 				</nav>
 			</div>	
 		</div>
+
 		<div class="content">
 			<div class="item-group">
 				<div class="item">
 					<div class="pic">
 						<div class="left" onclick="prev()">
 							<label for="img-6" class="prev">&#x2039;</label>
-							
 						</div>				
 						<div class="right" onclick="next()">
 							<label for="img-2" class="next">&#x203a;</label>
 						</div>
-						<div class="slides">
+						<div class="content_slides">
 							<img src="assets/photo/home-header1.png" alt="">
 							<div class="text">
 								<p>紅磚巷弄帶著有趣的客家諺語，</p>
@@ -56,7 +59,7 @@
 							</div>
 							
 						</div>
-						<div class="slides">
+						<div class="content_slides">
 							<img src="assets/photo/home-header2.png" alt="">
 							<div class="text">
 								<p>紅磚巷弄帶著有趣的客家諺語，</p>
@@ -85,56 +88,96 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="review">
+			<div class="swrap">
+				<div class="title">
+					<div class="line"></div>
+					<h2>精彩回顧</h2>
+					<div class="line"></div>
+				</div>
+				<div class="item-group">
+					<div class="left review_left" onclick="r_prev()">
+						<label for="" class="prev">&#x2039;</label>
+					</div>				
+					<div class="right review_right" onclick="r_next()">
+						<label for="img-2" class="next">&#x203a;</label>
+					</div>
+					<div class="item review_slides active">
+						<div class="pic">	
+							<img src="assets/photo/food1.jpeg" alt="">
+						</div>
+						<div class="text">
+							 <h3>客家老味道，橘餅饅頭</h3>
+							 <p>2017.09.20 </p>
+						</div>
+
+					</div>
+					<div class="item review_slides">
+						<div class="pic">
+							<img src="assets/photo/food2.jpg" alt="">
+						</div>
+						<div class="text">
+							 <h3>客家老味道，麵</h3>
+							 <p> 2018.05.16 </p>					 
+						</div>
+					</div>
+
+				</div>
+			</div>	
+		</div>
+		<div class="memories">
+			<div class="swrap">
+				<div class="title">
+					<div class="line"></div>
+					<h2>鄉民回憶</h2>
+					<div class="line"></div>
+				</div>
+			
+			<div class="item-group">
+				<div class="left memories_left" onclick="m_prev()">
+
+					<label for="" class="prev">&#x2039;</label>
+				</div>				
+				<div class="right memories_right" onclick="m_next()">
+					<label for="" class="next">&#x203a;</label>
+				</div>
+				<div class="item memories_slides active">
+					<div class="text">
+						<p> 下次要帶一家人去吃</p>
+					</div>
+					<div class="pic">
+						<img src="assets/01.svg" alt="">
+					</div>
+				</div>
+				<div class="item memories_slides">
+					
+					<div class="text">
+						<p>
+							空氣新鮮，街道很乾淨 希望下次還有機會造訪
+						</p>
+					</div>
+					<div class="pic"><img src="assets/02.svg" alt=""></div>
+				</div>
+				<div class="item memories_slides">
+					
+					<div class="text">
+						<p>超好吃～～</p>
+					</div>
+					<div class="pic"><img src="assets/03.svg" alt=""></div>
+				</div>
+			</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div class="swrap">
+				<div class="text">© 幸福銅鏡</div>
+			</div>
+		</div>
 	</div>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script>
-		$(function(){
-  		$("nav li").click(function(){
-    		$("nav li").eq($(this).index()).addClass("click").siblings().removeClass("click");
-  			})
-		})
-
-		var slideIndex = 0;
-    	var myVar;
-   	 	var slides = document.getElementsByClassName("slides");
-    	showSlides();
-    	function currentSlide(n) {
-      		clearTimeout();
-      		slideIndex = n-1;
-      		clearTimeout(myVar);
-      		showSlides()
-    	}
-	    function prev(){
-	      clearTimeout();
-	      slideIndex = slideIndex-2;
-	      if(slideIndex<0){
-	        slideIndex=slides.length-1;
-	      }
-	      clearTimeout(myVar);
-	      showSlides()
-	    }
-	    function next(){
-	      clearTimeout();
-	      clearTimeout(myVar);
-	      showSlides();
-	    }
-    	function showSlides(){
-      
-      		var i=0;
-      		var dots = document.getElementsByClassName("dot");
-      		for(i ; i < slides.length; i++){
-        		slides[i].style.display = "none";
-      		}
-      		slideIndex++;
-      		if (slideIndex > slides.length) {slideIndex = 1}    
-		    for (i = 0; i < dots.length; i++) {
-		    	dots[i].className = dots[i].className.replace(" active", "");
-		    }
-	      slides[slideIndex-1].style.display = "block"; 
-	      dots[slideIndex-1].className += " active";
-	      myVar = setTimeout(showSlides, 2000);
-    	}
-  	</script>
-
+	<script src="js/header.js"></script>
 </body>
 </html>

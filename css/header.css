@@ -1,7 +1,8 @@
 body{
-	background-color: #FAFAFA;
+	
 }
 .header{
+	background-color: #FAFAFA;
 	display: flex;
 	align-items: center;
 	height: 128px;
@@ -44,10 +45,10 @@ body{
 		       0px -8px 0px #8c0e03;
 }
 .header .menu{
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 65%;
-	height: 100vh;
+	height: 100%;
 	left: -100%;
 	background-color: #fff;
 	transition:.5s;
@@ -120,7 +121,7 @@ nav ul li span{
 	.header .menu{
 		left: 0;
 		width: 270px;
-		height: 100vh;
+		height: 100%;
 		background-color: #F9F9F9;
 		border-right: solid 1px rgba(0,0,0,.12);
 	}

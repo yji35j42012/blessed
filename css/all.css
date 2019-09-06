@@ -5,3 +5,11 @@
 	text-decoration: none;
 	list-style: none;
 }	
+.swrap{
+	margin: 0px;
+}
+@media (min-width: 1440px) {
+	.swrap{
+		margin-left: 270px;
+	}
+}
